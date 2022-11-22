@@ -1,4 +1,6 @@
-Mission Statement For those who hate Valentine’s Day, this app is for you! 
+Mission Statement 
+
+For those who hate Valentine’s Day, this app is for you! 
 
 “My perfect Valentine's day? I'm at home, three cell phones in front of me, fielding desperate calls from people who want to buy one of the fifty restaurant reservations I made over six months ago. -Dwight Schrute” - Snag-That-Table Developers
 
@@ -7,7 +9,7 @@ Be like Dwight, and book not one, but fifty restaurant reservations through our 
 
 Features
 
-Version 1.0
+    Version 1.0
 
 Snag a table at your favorite restaurant
 
