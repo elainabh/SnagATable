@@ -23,8 +23,8 @@ namespace Snag_That_Table.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Guid.TryParse(userId, out var newId);
-            var service = new RestaurantServices(newId);
-            var model = service.GetAllRestaurants();
+            _restaurantService.SetUserId(newId);
+            var model = _restaurantService.GetAllRestaurants();
             
             return View(model);
         }
@@ -40,9 +40,9 @@ namespace Snag_That_Table.Controllers
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Guid.TryParse(userId, out var newId);
-            var service = new RestaurantServices(newId);
+            _restaurantService.SetUserId(newId);
 
-            if (service.CreateRestaurant(model))
+            if (_restaurantService.CreateRestaurant(model))
             {
                 TempData["SaveResult"] = "Your restaurant was created.";
 

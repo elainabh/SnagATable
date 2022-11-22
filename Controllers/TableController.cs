@@ -22,9 +22,9 @@ namespace Snag_That_Table.Controllers
         public IActionResult Index()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            Guid.TryParse(userId, out var newId);
-            var service = new TableServices(newId);
-            var model = service.GetAllTables();
+            Guid.TryParse(userId, out Guid newId);
+            _tableService.SetUserId(newId);
+            var model = _tableService.GetAllTables();
 
             return View(model);
         }
@@ -40,9 +40,9 @@ namespace Snag_That_Table.Controllers
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Guid.TryParse(userId, out var newId);
-            var service = new TableServices(newId);
+            _tableService.SetUserId(newId);
 
-            if (service.CreateTable(model))
+            if (_tableService.CreateTable(model))
             {
                 TempData["SaveResult"] = "Your table was created.";
 
