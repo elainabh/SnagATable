@@ -57,7 +57,7 @@ namespace Snag_That_Table.Controllers
 
         public async Task<IActionResult> GetAllRestaurants()
         {
-            var restaurantList = await _restaurantService.GetAllRestaurants();
+            var restaurantList = _restaurantService.GetAllRestaurants();
 
             if (restaurantList is null)
             {

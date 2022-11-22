@@ -1,4 +1,4 @@
-﻿@model Snag_That_Table.Models.RestaurantModels.RestaurantListItem
+﻿@model IEnumerable<Snag_That_Table.Models.RestaurantModels.RestaurantListItem>
 
 @{
     ViewData["Title"] = "Index";
@@ -19,6 +19,7 @@
     </div>
 }
 
+
 <table class="table">
     <tr>
         <th>
@@ -33,21 +34,22 @@
         <th></th>
     </tr>
 
+    @foreach (var item in Model)
     {
         <tr>
             <td>
-            @Html.DisplayFor(model => model.RestaurantName)
+            @Html.DisplayNameFor(modelItem => item.RestaurantName)
             </td>
             <td>
-            @Html.DisplayFor(model => model.RestaurantAddress)
+            @Html.DisplayNameFor(modelItem => item.RestaurantAddress)
             </td>
             <td>
-            @Html.DisplayFor(model => model.RestaurantPhoneNumber)
+            @Html.DisplayNameFor(modelItem => item.RestaurantPhoneNumber)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit") |
-                @Html.ActionLink("Details", "Details") |
-                @Html.ActionLink("Delete", "Delete")
+                @Html.ActionLink("Edit", "Edit", new { id = item.RestaurantId}) |
+                @Html.ActionLink("Details", "Details", new { id = item.RestaurantId}) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RestaurantId})
             </td>
         </tr>
     }
