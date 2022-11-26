@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Snag_That_Table.Data;
+<<<<<<< HEAD
+=======
+using Snag_That_Table.Models.Messages;
+>>>>>>> 29a9784 (fingers crossed)
 using Snag_That_Table.Models.RestaurantModels;  
 using Snag_That_Table.Services.RestaurantServices;
 using System.Security.Claims;
@@ -29,6 +33,16 @@ namespace Snag_That_Table.Controllers
             return View(model);
         }
 
+<<<<<<< HEAD
+=======
+        public ActionResult Create(Guid ownerId)
+        {
+            var model = new RestaurantCreate();
+            model.OwnerId = ownerId;
+            return View(model);
+        }
+
+>>>>>>> 29a9784 (fingers crossed)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] RestaurantCreate model)
@@ -67,7 +81,11 @@ namespace Snag_That_Table.Controllers
         }
 
         [HttpPut]
+<<<<<<< HEAD
         public async Task<IActionResult> EditRestaurant([FromForm] RestaurantUpdate model, Guid restaurantId)
+=======
+        public async Task<IActionResult> Edit([FromForm] RestaurantUpdate model, Guid restaurantId)
+>>>>>>> 29a9784 (fingers crossed)
         {
             if (model == null || !ModelState.IsValid) return BadRequest();
             if (model.RestaurantId != restaurantId) return BadRequest();
